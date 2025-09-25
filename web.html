@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Blog: Concepción del Sistema y Entorno de Desarrollo</title>
+  <meta name="description" content="Blog educativo: Entorno de desarrollo del software y modelado del negocio." />
+  <style>
+    :root{--bg:#fbfbfd;--card:#ffffff;--muted:#6b6b7a;--accent:#5b21b6;--glass:rgba(255,255,255,0.6)}
+    *{box-sizing:border-box}
+    body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0; background:linear-gradient(180deg,#f7f6fb, #fbfcff); color:#222}
+    header{background:linear-gradient(90deg,var(--accent),#8b5cf6); color:white; padding:28px 20px}
+    .container{max-width:1100px; margin:22px auto; padding:0 18px}
+    .brand{display:flex; align-items:center; gap:14px}
+    .brand h1{font-size:1.4rem; margin:0}
+    nav{margin-top:12px}
+    nav a{color:rgba(255,255,255,0.92); text-decoration:none; margin-right:12px; font-weight:600}
+    main{display:grid; grid-template-columns: 1fr 320px; gap:26px; margin-top:18px}
+    article.card{background:var(--card); border-radius:12px; padding:22px; box-shadow:0 6px 18px rgba(29,29,39,0.06)}
+    .post-title{margin:0 0 10px 0; font-size:1.18rem; color:var(--accent)}
+    h2.section{margin-top:10px; color:#1f2937}
+    .muted{color:var(--muted); font-size:0.95rem}
+    .toc{background:linear-gradient(180deg,#fff,#fbfbff); padding:16px; border-radius:10px}
+    .toc a{display:block; color:var(--accent); text-decoration:none; margin:8px 0}
+    .lead{margin:8px 0 18px 0}
+    .subpoint{margin:10px 0; padding-left:12px}
+    footer{padding:22px; text-align:center; color:var(--muted)}
+    pre{background:#0f172a; color:#e6eef8; padding:12px; border-radius:8px; overflow:auto}
+    code{background:#f3f4f6; padding:2px 6px; border-radius:6px}
+    /* responsive */
+    @media(max-width:900px){main{grid-template-columns:1fr} .toc{order:-1} }
+    /* small helper styles */
+    .example{background:linear-gradient(90deg,#f8fafc,#fff); border-left:4px solid var(--accent); padding:10px; border-radius:6px}
+    .btn{display:inline-block; background:var(--accent); color:white; padding:8px 12px; border-radius:8px; text-decoration:none}
+    .img-box{margin:16px 0; text-align:center}
+    .img-box img{max-width:100%; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.08)}
+    .img-box figcaption{font-size:0.85rem; color:var(--muted); margin-top:6px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="brand">
+        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" aria-hidden>
+          <rect width="24" height="24" rx="6" fill="rgba(255,255,255,0.12)"></rect>
+          <path d="M6 12h12M6 8h12M6 16h12" stroke="white" stroke-width="1.4" stroke-linecap="round"></path>
+        </svg>
+        <div>
+          <h1>Concepción del Sistema y Entorno de Desarrollo</h1>
+        </div>
+      </div>
+      <nav aria-label="navegacion principal">
+        <a href="#entorno">Entorno</a>
+        <a href="#modelo-negocio">Modelo de Negocio</a>
+        <a href="#ejemplos">Ejemplos Prácticos</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <main>
+      <!-- Main article -->
+      <article class="card" id="entorno">
+        <h2 class="post-title">1. Entorno de desarrollo del software</h2>
+        <p class="lead muted">En este apartado reviso los elementos clave que conforman el entorno de desarrollo y por qué importan.</p>
+
+        <h3 class="section">• Introducción</h3>
+        <p>El entorno de desarrollo describe las herramientas, procesos, metodologías y la infraestructura que facilitan crear software. Incluye IDEs, control de versiones, servidores, dependencias y políticas de despliegue.</p>
+        <figure class="img-box">
+          <img src="https://db0dce98.rocketcdn.me/de/files/2023/09/spyder-ide-1024x604.png" alt="Ejemplo de IDE de desarrollo" />
+          <figcaption>Ilustración: entorno de desarrollo en un IDE</figcaption>
+        </figure>
+
+        <h3 class="section">• Entendimiento del Negocio</h3>
+        <p>Antes de escribir código, es esencial entender las necesidades del negocio: objetivos estratégicos, métricas clave, restricciones regulatorias y el perfil del usuario final. Esto permite priorizar funcionalidades útiles y evitar desperdicio de esfuerzo.</p>
+        <div class="subpoint">
+          <strong>Actividades típicas:</strong>
+          <ul>
+            <li>Entrevistas con stakeholders</li>
+            <li>Mapas de proceso</li>
+            <li>Definición de KPIs</li>
+          </ul>
+        </div>
+        <figure class="img-box">
+          <img src="https://img.freepik.com/vector-premium/empresario-mujer-negocios-analisis-grafico-negocios_47328-2.jpg" alt="Gráfico de análisis de negocio" />
+          <figcaption>Ilustración: análisis y entendimiento del negocio</figcaption>
+        </figure>
+
+        <h3 class="section">• Mejoramiento del proceso actual</h3>
+        <p>Evaluar el flujo de trabajo actual para detectar cuellos de botella: tiempos de despliegue largos, pruebas manuales o falta de retroalimentación. Usar métricas y un enfoque iterativo (por ejemplo, Kanban o Scrum) para mejorar continuamente.</p>
+        <div class="example">
+          <strong>Ejemplo:</strong> Implementar CI/CD para reducir el tiempo entre la creación de una funcionalidad y su entrega en producción.
+        </div>
+        <figure class="img-box">
+          <img src="https://cms-cdn.katalon.com/banner_10_c502a533a1.png" alt="Pipeline CI/CD" />
+          <figcaption>Ilustración: pipeline de integración y despliegue continuo</figcaption>
+        </figure>
+
+        <hr />
+
+        <h2 class="post-title" id="modelo-negocio">2. El Modelo del Negocio</h2>
+        <p class="lead muted">Modelar el negocio ayuda a trasladar las necesidades empresariales a un sistema coherente y mantenible.</p>
+
+        <h3 class="section">• Modelo del Dominio</h3>
+        <p>Describe las entidades, relaciones y reglas del negocio en un lenguaje cercano al dominio. Suele representarse con diagramas de clases o entidades (ERD).</p>
+        <div class="subpoint">
+          <ul>
+            <li>Entidades: <em>Cliente, Producto, Pedido</em></li>
+            <li>Reglas: Validez de estados, límites, políticas</li>
+          </ul>
+        </div>
+        <figure class="img-box">
+          <img src="https://www.researchgate.net/profile/Rene-Lopez-5/publication/298787742/figure/fig6/AS:340822261288969@1458269767270/Figura-34-Diagrama-del-modelo-del-dominio.png" alt="Diagrama de modelo de dominio" />
+          <figcaption>Ejemplo: modelo de dominio para e-commerce</figcaption>
+        </figure>
+
+        <h3 class="section">• Modelo de Casos de Uso del Negocio</h3>
+        <p>Los casos de uso describen cómo los actores (usuarios, sistemas externos) interactúan con el sistema para alcanzar objetivos del negocio. Permiten identificar requisitos funcionales claros.</p>
+        <figure class="img-box">
+          <img src="https://edit.org/photos/editor/json/2023/04/20/6/f/6f55605aac5cac8a43ef3763f66841d1_edit.org.jpg-376.jpg" alt="Modelo de casos de uso" />
+          <figcaption>Ejemplo: diagrama de casos de uso</figcaption>
+        </figure>
+
+        <h3 class="section">• Modelo de Objetos del Negocio</h3>
+        <p>Traducción técnica del modelo del dominio a objetos/entidades en el sistema: atributos, métodos y límites de responsabilidad. Aquí se decide qué lógica vive en el dominio vs servicios.</p>
+
+        <h3 class="section">• Representación de un Modelo de Negocio – Ejemplos Prácticos</h3>
+        <p>A continuación hay dos ejemplos breves y aplicables:</p>
+        <ol>
+          <li><strong>Comercio electrónico</strong>: Entidades — Usuario, Carrito, Producto, Inventario, Pago. Flujo — Usuario agrega al carrito → crea orden → procesa pago → actualiza inventario.</li>
+          <li><strong>Gestión de proveedores</strong>: Entidades — Proveedor, Contrato, Factura, Pago. Flujo — Proveedor envía factura → validación → aprobación → pago.</li>
+        </ol>
+        <figure class="img-box">
+          <img src="https://d20ohkaloyme4g.cloudfront.net/img/document_thumbnails/200b714a39598d5cf53920e2cc2c272e/thumb_1200_900.png" alt="Modelo de negocio práctico" />
+          <figcaption>Ejemplo práctico de representación de un modelo de negocio</figcaption>
+        </figure>
+
+        <h3 class="section">• Pasando del Modelo del Negocio al Modelo del Sistema</h3>
+        <p>Se realiza una descomposición técnica: servicios, APIs, bases de datos, colas, componentes frontend y responsabilidades. Esto incluye decisiones arquitectónicas (monolito vs microservicios), patrones (CQRS, Event Sourcing) y criterios non-functional (seguridad, escalabilidad).</p>
+
+        <div style="margin-top:18px">
+          <h3 class="section">Plantilla práctica rápida</h3>
+          <p>Usa este checklist para pasar del negocio al sistema:</p>
+          <ul>
+            <li>1. Mapear entidades del dominio.</li>
+            <li>2. Definir casos de uso prioritarios.</li>
+            <li>3. Diseñar interfaces (API / UI) para cada caso de uso.</li>
+            <li>4. Selección de tecnologías (DB, runtime, frameworks).</li>
+            <li>5. Definir pruebas automatizadas y pipelines.</li>
+          </ul>
+        </div>
+
+      </article>
+
+      <!-- Sidebar / TOC -->
+      <aside class="toc" aria-label="tabla de contenido">
+        <h3 style="margin-top:0">Tabla de contenido</h3>
+        <a href="#entorno">1. Entorno de desarrollo del software</a>
+        <a href="#modelo-negocio">2. El Modelo del Negocio</a>
+        <a href="#ejemplos">3. Ejemplos prácticos y recursos</a>
+
+        <div style="margin-top:12px">
+          <a class="btn" href="#modelo-negocio">Ir a Modelo</a>
+        </div>
+
+        <div style="margin-top:14px; font-size:0.9rem; color:var(--muted)">
+          Publicado por Michelle - 2024
+        </div>
+      </aside>
+    </main>
+
+    <!-- Extra section with examples and resources -->
+    <section class="card" id="ejemplos" style="margin-top:18px">
+      <div class="container" style="padding:0">
+        <h2 class="post-title">Ejemplos prácticos y recursos</h2>
+        <p class="muted">Material de apoyo y una pequeña guía para actividades que puedes usar en clase o para tu proyecto.</p>
+
+        <h3 class="section">Actividades sugeridas</h3>
+        <ol>
+          <li>Realizar un diagrama de dominio para un proceso real de tu trabajo o estudio.</li>
+          <li>Escribir 3 casos de uso con pasos desde el actor hasta el resultado final (pre y post condiciones).</li>
+          <li>Construir un modelo de objetos en UML y mapearlo a tablas de base de datos.</li>
+        </ol>
+        <figure class="img-box">
+          <img src="https://ideascale.com/wp-content/uploads/2022/03/UML-Diagram.png" alt="Diagrama UML" />
+          <figcaption>Ilustración: ejemplo de diagrama UML para objetos del negocio</figcaption>
+        </figure>
+
+        <h3 class="section">Sugerencias de despliegue</h3>
+        <ul>
+          <li>GitHub Pages o Netlify para hosting estático.</li>
+          <li>Integrar un flujo básico de CI que valide HTML/CSS y ejecute tests de accesibilidad.</li>
+        </ul>
+
+      </div>
+    </section>
+
+    <footer style="margin-top:22px">
+      <div class="container">
+        <p class="muted">El bloq de michelle </p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // smooth scroll for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const href = a.getAttribute('href');
+        if(href.length>1){
+          e.preventDefault();
+          document.querySelector(href).scrollIntoView({behavior:'smooth', block:'start'});
+        }
+      })
+    })
+  </script>
+</body>
+</html>
